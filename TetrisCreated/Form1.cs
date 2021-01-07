@@ -124,7 +124,7 @@ namespace TetrisCreated
         }
 
         /// <summary>
-        /// キー入力受け取り関数
+        /// キー入力関数
         /// </summary>
         /// <param name="keyData"></param>
         /// <returns></returns>
@@ -142,17 +142,17 @@ namespace TetrisCreated
                 // ↓キーで y +10
                 if ((keyData & Keys.KeyCode) == Keys.Down)
                 {
-                    lastBlock.Move(new Point(0, 10));
+                    lastBlock.Move(new Point(0, 10), pictureBox1.Size);
                 }
                 // ←キーで x -10
                 else if ((keyData & Keys.KeyCode) == Keys.Left)
                 {
-                    lastBlock.Move(new Point(-10, 0));
+                    lastBlock.Move(new Point(-10, 0), pictureBox1.Size);
                 }
                 // →キーで x +10
                 else if ((keyData & Keys.KeyCode) == Keys.Right)
                 {
-                    lastBlock.Move(new Point(10, 0));
+                    lastBlock.Move(new Point(10, 0), pictureBox1.Size);
                 }
             }
 

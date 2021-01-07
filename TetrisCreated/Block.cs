@@ -76,9 +76,29 @@ namespace TetrisCreated
         /// テトリミノ移動用関数
         /// </summary>
         /// <param name="offset"></param>
-        public void Move(Point offset)
-        {
-            pos = new Point(pos.X + offset.X, pos.Y + offset.Y);
+        public void Move(Point offset , Size fieldSize)
+        { 
+            //移動後のテトリミノ座標 
+           Point newPos = new Point(pos.X + offset.X, pos.Y + offset.Y);
+
+           // 移動後の座標が0より小さい時、強制的に 0 代入
+           if (newPos.X < 0)
+           {
+               newPos.X = 0;
+           }
+           // 移動後の座標とブロックの幅がFieldSizeより大きい場合
+           else if (newPos.X + width > fieldSize.Width)
+           {
+               // 移動後の座標に フィールド横幅とブロックの幅を引いたものを代入
+               newPos.X = fieldSize.Width - width;
+           }
+           // Yにも同じ処理
+           else if (newPos.Y + height > fieldSize.Height)
+           {
+               newPos.X = fieldSize.Height - height;
+           }
+           // 同期
+           pos = newPos;
         }
     }
 }
