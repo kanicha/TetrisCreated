@@ -71,5 +71,14 @@ namespace TetrisCreated
                 }
             }
         }
+
+        /// <summary>
+        /// テトリミノ移動用関数
+        /// </summary>
+        /// <param name="offset"></param>
+        public void Move(Point offset)
+        {
+            pos = new Point(pos.X + offset.X, pos.Y + offset.Y);
+        }
     }
 }
