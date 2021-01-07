@@ -53,8 +53,15 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="I_Block.cs" />
+    <Compile Include="J_Block.cs" />
+    <Compile Include="L_Block.cs" />
+    <Compile Include="O_Block.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S_Block.cs" />
+    <Compile Include="T_Block.cs" />
+    <Compile Include="Z_Block.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

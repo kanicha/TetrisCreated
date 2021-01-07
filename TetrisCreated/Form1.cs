@@ -31,9 +31,6 @@ namespace TetrisCreated
         {
             // ブロックリスト初期化
             blockList = new List<Block>();
-            // 初期化と同時に一つ作成を行う
-            Block _b = new Block();
-            blockList.Add(_b);
         }
 
         /// <summary>
@@ -75,5 +72,88 @@ namespace TetrisCreated
             pictureBox1.Refresh();
         }
 
+        /// <summary>
+        /// Iミノボタン押し込み作成
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // 初期化と同時に一つ作成を行う
+            Block _b = new I_Block();
+            blockList.Add(_b);
+        }
+
+        /// <summary>
+        /// Jミノボタン押し込み作成
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // 初期化と同時に一つ作成を行う
+            Block _b = new J_Block();
+            blockList.Add(_b);
+        }
+
+        /// <summary>
+        ///  Lミノボタン押し込み作成
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // 初期化と同時に一つ作成を行う
+            Block _b = new L_Block();
+            blockList.Add(_b);
+        }
+
+        /// <summary>
+        /// Oミノボタン押し込み作成
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // 初期化と同時に一つ作成を行う
+            Block _b = new O_Block();
+            blockList.Add(_b);
+        }
+
+        /// <summary>
+        /// Sミノボタン押し込み作成
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            // 初期化と同時に一つ作成を行う
+            Block _b = new S_Block();
+            blockList.Add(_b);
+        }
+
+        /// <summary>
+        /// Zミノボタン押し込み作成
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // 初期化と同時に一つ作成を行う
+            Block _b = new Z_Block();
+            blockList.Add(_b);
+        }
+
+        /// <summary>
+        /// Tミノボタン押し込み作成
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // 初期化と同時に一つ作成を行う
+            Block _b = new T_Block();
+            blockList.Add(_b);
+        }
     }
 }

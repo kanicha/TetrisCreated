@@ -7,36 +7,28 @@ using System.Threading.Tasks;
 
 namespace TetrisCreated
 {
-    class Block
+    abstract  class Block
     {
         // ブロックリスト作成
-        List<Rectangle> rectList;
+        public List<Rectangle> rectList;
 
         // ポジション確認変数
-        Point pos;
+        public Point pos;
+        // 色変化変数
+        public Color color;
+
         // 縦横変数
-        int width;
-        int height;
+        public int width;
+        public int height;
         // 落下確認bool型変数
-        bool fallCheck;
+        public bool fallCheck;
 
         /// <summary>
         /// ブロック作成クラス
         /// </summary>
         public Block()
         {
-            // rectをnewしてその中に呼出し
-            rectList = new List<Rectangle>
-            {
-                // ブロック座標情報リストに追加
-                new Rectangle(0, 0, 10, 10),
-                new Rectangle(10, 0, 10, 10),
-                new Rectangle(10, 10, 10, 10),
-                new Rectangle(20, 10, 10, 10)
-            };
-            // 大きさを代入
-            width = 30;
-            height = 20;
+
         }
 
         /// <summary>
@@ -70,10 +62,13 @@ namespace TetrisCreated
         /// <param name="g"></param>
         public void Draw(Graphics g)
         {
-            // foreach を使い描画
-            foreach (Rectangle rect in rectList)
+            using (SolidBrush b = new SolidBrush(color))
             {
-                g.FillRectangle(Brushes.Red, new Rectangle(pos.X + rect.Left, pos.Y + rect.Top, rect.Width - 1, rect.Height - 1));
+                // foreach を使い描画
+                foreach (Rectangle rect in rectList)
+                {
+                    g.FillRectangle(b, new Rectangle(pos.X + rect.Left, pos.Y + rect.Top, rect.Width - 1, rect.Height - 1));
+                }
             }
         }
     }
