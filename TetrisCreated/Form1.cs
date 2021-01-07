@@ -14,10 +14,8 @@ namespace TetrisCreated
 {
     public partial class Form1 : Form
     {
-
-
         // ブロックリスト作成
-        List<Rectangle> rectList;
+        private List<Block> blockList;
 
         public Form1()
         {
@@ -31,15 +29,11 @@ namespace TetrisCreated
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
-            // rectをnewしてその中に呼出し
-            rectList = new List<Rectangle>
-            {
-                // ブロック座標情報リストに追加
-                new Rectangle(0, 0, 10, 10),
-                new Rectangle(10, 0, 10, 10),
-                new Rectangle(10, 10, 10, 10),
-                new Rectangle(20, 10, 10, 10)
-            };
+            // ブロックリスト初期化
+            blockList = new List<Block>();
+            // 初期化と同時に一つ作成を行う
+            Block _b = new Block();
+            blockList.Add(_b);
         }
 
         /// <summary>
@@ -49,10 +43,10 @@ namespace TetrisCreated
         /// <param name="e"></param>
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            // foreach を使い描画
-            foreach (Rectangle rect in rectList)
+            // blockList呼び出し、変数 b に代入を行い呼び込みUpdate
+            foreach (Block b in blockList)
             {
-                e.Graphics.FillRectangle(Brushes.Red, rect);
+                b.Draw(e.Graphics);
             }
         }
 
@@ -63,15 +57,10 @@ namespace TetrisCreated
         /// <param name="e"></param>
         private void UpdateTimer_Tick_1(object sender, EventArgs e)
         {
-            // for文でListのCountをループさせる
-            for (int i = 0; i < rectList.Count; i++)
+            // 時間経過も呼出
+            foreach (Block b in blockList)
             {
-                // rectListの i 配列分を Rectangle 型の _r に代入を行う
-                Rectangle _r = rectList[i];
-                // rectListの中身を引き継いだ _r 変数を使って時間経過とともに座標を動かす
-                _r = new Rectangle(_r.Left, _r.Top + 10, _r.Width, _r.Height);
-                // 最終的にlistに代入
-                rectList[i] = _r;
+                b.Update(pictureBox1.Height);
             }
         }
 
